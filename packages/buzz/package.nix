@@ -9,15 +9,15 @@
   gtk3,
   webkitgtk_4_1,
 }: let
-  version = "0.5.0";
+  version = "0.5.11";
 in
   stdenv.mkDerivation {
     pname = "buzz";
     inherit version;
 
     src = fetchurl {
-      url = "https://github.com/block/buzz/releases/download/v${version}/Buzz_${version}_amd64.deb";
-      hash = "sha256-lnTPCY7KiDM+jYleydClxWx5b7w1j+EIe2RYkLji+so=";
+      url = "https://github.com/block/buzz/releases/download/desktop-v${version}/Buzz_${version}_amd64.deb";
+      hash = "sha256-sY+hy9Vi62l6V37rEMn4sxIzx848MQG5mfOVUXg7qRM=";
     };
 
     nativeBuildInputs = [dpkg autoPatchelfHook makeWrapper];
