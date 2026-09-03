@@ -9,7 +9,7 @@
   gtk3,
   webkitgtk_4_1,
 }: let
-  version = "0.5.11";
+  version = "0.5.20";
 in
   stdenv.mkDerivation {
     pname = "buzz";
@@ -17,7 +17,7 @@ in
 
     src = fetchurl {
       url = "https://github.com/block/buzz/releases/download/desktop-v${version}/Buzz_${version}_amd64.deb";
-      hash = "sha256-sY+hy9Vi62l6V37rEMn4sxIzx848MQG5mfOVUXg7qRM=";
+      hash = "sha256-VcfeQrwZau1pWXsBwls9r3iqiEDw8zF011NOh8rHFCQ=";
     };
 
     nativeBuildInputs = [dpkg autoPatchelfHook makeWrapper];
