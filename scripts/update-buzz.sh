@@ -113,7 +113,10 @@ main() {
   [ -n "$hash" ] && [ "$hash" != "null" ] || die "prefetch failed"
 
   sed -i -e "s/^  version = \"[^\"]*\";/  version = \"${latest}\";/" "$PACKAGE"
-  sed -i -e "s|^    hash = \"sha256-[^\"]*\";|    hash = \"${hash}\";|" "$PACKAGE"
+  sed -i -e "s|hash = \"sha256-[^\"]*\";|hash = \"${hash}\";|" "$PACKAGE"
+
+  grep -Fq "version = \"${latest}\";" "$PACKAGE" || die "version update failed"
+  grep -Fq "$hash" "$PACKAGE" || die "hash update failed"
 
   trap - EXIT
   rm -rf "$TMPDIR_UPDATE"
